@@ -49,10 +49,10 @@ with open('9_dof.csv', 'w') as csvfile:
   fieldnames = ['datetime','X_gyro','Y_gyro','Z_gyro','X_acc','Y_acc','Z_acc', 'X_comp','Y_comp','Z_comp']
   writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
   writer.writeheader()
-#try:  
   while True:  
     hack = time.time()  
-    dt = str(datetime.datetime.now())
+  
+    dt = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     if imu.IMURead():  
       data = imu.getIMUData()  
   
@@ -67,10 +67,5 @@ with open('9_dof.csv', 'w') as csvfile:
                     'X_gyro': data['gyro'][0],'Y_gyro': data['gyro'][1],'Z_gyro': data['gyro'][2],
                     'X_acc': data['accel'][0],'Y_acc': data['accel'][1],'Z_acc': data['accel'][2],
                     'X_comp': data['compass'][0],'Y_comp': data['compass'][1],'Z_comp': data['compass'][2]})
-      time.sleep(poll_interval*1.0/20.0)
-     # print(poll_interval*1.0/20.0)
-     # time.sleep(1)
-#except:
-#  pass	  
   
 
