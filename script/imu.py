@@ -45,14 +45,13 @@ poll_interval = imu.IMUGetPollInterval()
 prev = time.time() 
 #data = dict()
 data = {}
-with open('9_dof.csv', 'w') as csvfile:
+with open('/home/pi/test/20180302/9_dof.csv', 'w') as csvfile:
   fieldnames = ['datetime','X_gyro','Y_gyro','Z_gyro','X_acc','Y_acc','Z_acc', 'X_comp','Y_comp','Z_comp']
   writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
   writer.writeheader()
   while True:  
     hack = time.time()  
-  
-    dt = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    dt = str(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-4])
     if imu.IMURead():  
       data = imu.getIMUData()  
   
