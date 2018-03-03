@@ -45,7 +45,7 @@ poll_interval = imu.IMUGetPollInterval()
 prev = time.time() 
 #data = dict()
 data = {}
-with open('/home/pi/test/20180302/9_dof.csv', 'w') as csvfile:
+with open('/home/pi/test/20180303/9_dof.csv', 'w') as csvfile:
   fieldnames = ['datetime','X_gyro','Y_gyro','Z_gyro','X_acc','Y_acc','Z_acc', 'X_comp','Y_comp','Z_comp']
   writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
   writer.writeheader()

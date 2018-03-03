@@ -6,7 +6,7 @@ import csv
 p = Pulsesensor()
 p.startAsyncBPM()
 
-with open('/home/pi/test/20180302/pulse.csv', 'w') as csvfile:
+with open('/home/pi/test/20180303/pulse.csv', 'w') as csvfile:
     fieldnames = ['datetime', 'BPM']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
